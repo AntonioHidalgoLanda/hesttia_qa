@@ -27,6 +27,6 @@ webhelpers.updateField(driver, formField["password"], userData["password"])
 webhelpers.submit(driver, formField["submit"])
 
 time.sleep(10)
-driver.close()
+#driver.close()
 
 

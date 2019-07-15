@@ -4,7 +4,9 @@ landingPage = "https://beta.hesttia.com"
 
 xpathLink = {
     "signup": "//*[@id='menu-item-342']//a",
-    "login": "//*[@id='menu-item-219']//a"
+    "login": "//*[@id='menu-item-219']//a",
+    "account": "//*[@id='menu-item-215']//a",
+    "addMenu": "//*[@id='menu-item-251']//a"
 }
 
 
