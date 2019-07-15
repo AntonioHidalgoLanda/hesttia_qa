@@ -1,8 +1,7 @@
 #!/usr/bin/python
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 import time
-import webhelpers
+from Hesttia import Hesttia, landingPage
 
 inputUser = {
     'firstName': "reg_sr_firstname",
@@ -22,18 +21,18 @@ dataUser = {
 }
 
 driver = webdriver.Firefox()
-driver.get(webhelpers.landingPage)
+driver.get(landingPage)
+hesttia = Hesttia(driver)
 
-elem = driver.find_element_by_xpath(webhelpers.xpathLink["signup"])
-elem.click()
+hesttia.clickMenuXpathKey("signup")
 
-webhelpers.updateField(driver,inputUser["firstName"],dataUser["firstName"])
-webhelpers.updateField(driver,inputUser["lastName"],dataUser["lastName"])
-webhelpers.updateField(driver,inputUser["email"],dataUser["email"])
-webhelpers.updateField(driver,inputUser["cert"],dataUser["cert"])
-webhelpers.updateField(driver,inputUser["bio"],dataUser["bio"])
+hesttia.updateField(inputUser["firstName"],dataUser["firstName"])
+hesttia.updateField(inputUser["lastName"],dataUser["lastName"])
+hesttia.updateField(inputUser["email"],dataUser["email"])
+hesttia.updateField(inputUser["cert"],dataUser["cert"])
+hesttia.updateField(inputUser["bio"],dataUser["bio"])
 
-webhelpers.submit(driver, inputUser["submit"])
+hesttia.submit(inputUser["submit"])
 
 time.sleep(10)
 driver.close()
